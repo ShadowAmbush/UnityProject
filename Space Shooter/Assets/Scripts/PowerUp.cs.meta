@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 28509e34e64884b44a2b2ff4d4116689
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _tripleShotprefab: {fileID: 5298482396737870290, guid: 153ff4e0dda7fe949a197631d2c39f93,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
