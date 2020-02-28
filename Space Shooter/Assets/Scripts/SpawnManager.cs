@@ -8,13 +8,17 @@ public class SpawnManager : MonoBehaviour
     private GameObject _enemyprefab;
     [SerializeField]
     private GameObject _enemyContainer;
+    [SerializeField]
+    private GameObject _TripleShotPowerUpprefab;
+    private GameObject[] powerups;
 
     private bool _stopSpawning = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnRoutine());
+        StartCoroutine(SpawnEnemyRoutine());
+        StartCoroutine(SpawnPowerUpRoutine());
     }
 
     // Update is called once per frame
@@ -23,7 +27,20 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    IEnumerator SpawnRoutine()
+    IEnumerator SpawnPowerUpRoutine()
+    {
+        float randomX = Random.Range(-9.4f, 9.4f);
+        int randomS = Random.Range(5,12);
+        //every 3-7 seconds spawn a power-up
+        while(_stopSpawning == false)
+        {
+            GameObject newPowerUp = Instantiate(_TripleShotPowerUpprefab, transform.position = new Vector3(randomX, 6, 0), Quaternion.identity);
+            yield return new WaitForSeconds(randomS);
+
+        }
+    }
+
+    IEnumerator SpawnEnemyRoutine()
     {
         float randomX = Random.Range(-9.4f, 9.4f);
         while (_stopSpawning == false)

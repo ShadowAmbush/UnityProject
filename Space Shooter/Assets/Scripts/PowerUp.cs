@@ -6,7 +6,12 @@ public class PowerUp : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 3f;
-
+    //ID for powerUPS
+    //0 = tripleshot
+    //1= speed
+    //3 = shield
+    [SerializeField]
+    private int PowerUpID;
    
     private bool _stopSpawning = false;
 
@@ -39,7 +44,22 @@ public class PowerUp : MonoBehaviour
 
             if(player != null)
             {
-                player.TripleShotActive();
+                switch (PowerUpID)
+                {
+                    case 0:
+                        player.TripleShotActive();
+                        break;
+                    case 1:
+                        player.SetSpeed(9);
+                        break;
+                    case 2:
+                        Debug.Log("Collected Shields");
+                        break;
+                    default:
+                        Debug.Log("Default value");
+                        break;
+                }
+                
             }
             Destroy(this.gameObject);
         }

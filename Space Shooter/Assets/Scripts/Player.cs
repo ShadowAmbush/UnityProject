@@ -20,8 +20,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _tripleprefab;
 
-
-
+    public float GetSpeed()
+    {
+        return _speed;
+    }
+    public void SetSpeed(int speed)
+    {
+        _speed = speed;
+        StartCoroutine(SpeedPowerUpDownRoutine());
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -126,5 +133,10 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         _isTripleShotActive = false;
+    }
+    IEnumerator SpeedPowerUpDownRoutine()
+    {
+        yield return new WaitForSeconds(5);
+        _speed = 5;
     }
 }
